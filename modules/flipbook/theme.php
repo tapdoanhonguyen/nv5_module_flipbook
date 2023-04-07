@@ -340,7 +340,6 @@ function nv_theme_laws_detail($array_data, $other_cat = array(), $other_area = a
     if (nv_user_in_groups($array_data['groups_download'])) {
         if (!empty($array_data['files'])) {
             foreach ($array_data['files'] as $file) {
-                $file['title'] = nv_preg_quote(NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' .$file['title']);
 
                 $xtpl->assign('FILE', $file);
 

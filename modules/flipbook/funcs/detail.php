@@ -156,13 +156,15 @@ if (!empty($row['files'])) {
     $row['files'] = [];
 
     foreach ($files as $id => $file) {
+        $is_localfile = (!nv_is_url($file));
         $file_title = (!preg_match("/^http*/", $file)) ? basename($file) : $lang_module['click_to_download'];
+
         $row['files'][] = array(
             'title' => $file_title,
             'key' => md5($id . $file_title),
             'ext' => nv_getextension($file_title),
             'titledown' => $lang_module['download'] . ' ' . (count($files) > 1 ? $id + 1 : ''),
-            'url' => (!preg_match("/^http*/", $file)) ? NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=' . $module_info['alias']['detail'] . '/' . $lawalias . '&amp;download=1&amp;id=' . $id : $file,
+            'url' => $is_localfile ? (nv_preg_quote(NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' .$file)) : nv_preg_quote($file),
             'urlpdf' => NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=' . $module_info['alias']['detail'] . '/' . $lawalias . '&amp;pdf=1&amp;id=' . $id
         );
     }

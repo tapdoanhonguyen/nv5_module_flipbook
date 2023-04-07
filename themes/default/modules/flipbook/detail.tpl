@@ -2,7 +2,10 @@
 <link rel="stylesheet"  href="{NV_BASE_SITEURL}themes/{TEMPLATE}/modules/{MODULEINFO}/plugins/css/dflip.min.css"/>
 <link rel="stylesheet"  href="{NV_BASE_SITEURL}themes/{TEMPLATE}/modules/{MODULEINFO}/plugins/css/metaboxes.min.css"/>
 <link rel="stylesheet"  href="{NV_BASE_SITEURL}themes/{TEMPLATE}/modules/{MODULEINFO}/plugins/css/themify-icons.min.css"/>
-
+<script>
+    //tạo đường dẫn file 
+    var url_path = "{URL_FILE}";
+</script>
 <script src="{NV_BASE_SITEURL}themes/{TEMPLATE}/modules/{MODULEINFO}/plugins/js/dflip.min.js"></script>
 <script src="{NV_BASE_SITEURL}themes/{TEMPLATE}/modules/{MODULEINFO}/plugins/js/metaboxes.min.js"></script>
 <script src="{NV_BASE_SITEURL}themes/{TEMPLATE}/modules/{MODULEINFO}/plugins/js/libs/pdf.min.js"> </script>
@@ -13,7 +16,7 @@
     <script class="df-shortcode-script" type="application/javascript">
 
         window.option_df_{DATA.id} = {
-                "outline":[],"forceFit":"true","autoEnableOutline":"false","autoEnableThumbnail":"false","overwritePDFOutline":"false","direction":"1","pageSize":"0","source":"{FILE.title}","wpOptions":"true"}; 
+                "outline":[],"forceFit":"true","autoEnableOutline":"false","autoEnableThumbnail":"false","overwritePDFOutline":"false","direction":"1","pageSize":"0","source":"{FILE.url}","wpOptions":"true"}; 
                 if(window.DFLIP && window.DFLIP.parseBooks){window.DFLIP.parseBooks();}
     </script>
     <div class="_df_book df-lite"  id="df_{DATA.id}" data-title="test" _slug="{DATA.id}" wpoptions="true" thumb="{FILE.image}" thumbtype="bg"></div>
